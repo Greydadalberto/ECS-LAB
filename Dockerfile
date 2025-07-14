@@ -1,4 +1,7 @@
-FROM php:7.4-apache
+FROM php:8.2-apache
+
+# Update system packages to reduce vulnerabilities
+RUN apt-get update && apt-get upgrade -y && apt-get clean
 
 # Install MySQL extension
 RUN docker-php-ext-install mysqli
